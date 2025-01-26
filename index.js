@@ -26,8 +26,6 @@ const PORT = process.env.PORT || 3000;
                 return res.status(500).json({ error: "Unexpected response format from Donetick API" });
             }
 
-            console.log("DATA: ", JSON.stringify(data));
-
             const now = new Date();
             const tomorrow = new Date();
             tomorrow.setDate(now.getDate() + 1);
@@ -46,8 +44,6 @@ const PORT = process.env.PORT || 3000;
                 frequency: task.frequency,
                 frequency_metadata: task.frequency_metadata,
             }));
-
-            console.log("TASKS: " + JSON.stringify(tasks));
 
             const totalTasks = tasks.length;
             const tasksDueToday = tasks.filter(task => task.nextDueDate && task.nextDueDate.toDateString() === now.toDateString() && task.isActive).length;
