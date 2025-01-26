@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2022:3000"
+    environment:
+      API_KEY: ${API_KEY}
+      SERVER_URL: ${SERVER_URL}
+    volumes:
+      - .:/usr/src/app
